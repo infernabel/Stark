@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: '0.0.0.0',
     port: 8080,
-    allowedHosts: true, // allows all hosts/domains
+    allowedHosts: https://stark-8q2g.onrender.com/, // allows all hosts/domains
   },
   plugins: [
     react(),
