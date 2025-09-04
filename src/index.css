@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Advanced Holographic Design System */
+
+@layer base {
+  :root {
+    /* Neural Network Color Palette */
+    --quantum-black: 217 33% 4%;
+    --void-black: 220 30% 2%;
+    --neural-dark: 215 25% 8%;
+    --grid-cyan: 185 100% 50%;
+    --electric-blue: 197 100% 60%;
+    --quantum-purple: 270 100% 65%;
+    --neon-cyan: 180 100% 75%;
+    --hologram-teal: 174 100% 70%;
+    --matrix-green: 120 100% 60%;
+    --neural-white: 200 20% 95%;
+    --ghost-white: 210 15% 88%;
+    --plasma-pink: 320 100% 75%;
+    
+    /* Semantic Tokens */
+    --background: var(--void-black);
+    --foreground: var(--neural-white);
+    --card: var(--neural-dark);
+    --card-foreground: var(--neural-white);
+    --popover: var(--neural-dark);
+    --popover-foreground: var(--neural-white);
+    --primary: var(--grid-cyan);
+    --primary-foreground: var(--quantum-black);
+    --secondary: var(--quantum-purple);
+    --secondary-foreground: var(--neural-white);
+    --muted: var(--neural-dark);
+    --muted-foreground: var(--ghost-white);
+    --accent: var(--electric-blue);
+    --accent-foreground: var(--neural-white);
+    --destructive: 0 85% 60%;
+    --destructive-foreground: var(--neural-white);
+    --border: var(--grid-cyan);
+    --input: var(--neural-dark);
+    --ring: var(--neon-cyan);
+    --radius: 0.75rem;
+    
+    /* Holographic Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(var(--grid-cyan) / 0.2), hsl(var(--quantum-purple) / 0.3), hsl(var(--electric-blue) / 0.2));
+    --gradient-card: linear-gradient(145deg, hsl(var(--neural-dark) / 0.8), hsl(var(--quantum-black) / 0.9));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--grid-cyan) / 0.3), transparent 50%);
+    --gradient-horizon: linear-gradient(90deg, transparent, hsl(var(--grid-cyan) / 0.6), transparent);
+    
+    /* Neural Network Effects */
+    --glow-small: 0 0 20px hsl(var(--grid-cyan) / 0.4);
+    --glow-medium: 0 0 40px hsl(var(--electric-blue) / 0.3);
+    --glow-large: 0 0 80px hsl(var(--quantum-purple) / 0.2);
+    --neural-shadow: 0 8px 32px hsl(var(--quantum-black) / 0.4);
+    
+    /* Typography */
+    --font-cyber: 'Orbitron', monospace;
+    --font-code: 'Fira Code', monospace;
+    
+    /* Animation Timings */
+    --transition-neural: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-code;
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--grid-cyan) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--quantum-purple) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--electric-blue) / 0.03) 0%, transparent 50%),
+      hsl(var(--background));
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Neural Network Grid */
+  .neural-grid {
+    background-image: 
+      linear-gradient(hsl(var(--grid-cyan) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-cyan) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-pulse 4s ease-in-out infinite alternate;
+  }
+  
+  /* Holographic Card */
+  .holo-card {
+    @apply relative backdrop-blur-md border;
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--grid-cyan) / 0.3);
+    box-shadow: 
+      var(--neural-shadow),
+      inset 0 1px 0 hsl(var(--neural-white) / 0.1),
+      0 0 0 1px hsl(var(--grid-cyan) / 0.1);
+    transition: var(--transition-neural);
+  }
+  
+  .holo-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+      var(--glow-medium),
+      var(--neural-shadow),
+      inset 0 1px 0 hsl(var(--neural-white) / 0.2);
+    border-color: hsl(var(--neon-cyan) / 0.6);
+  }
+  
+  /* Quantum Buttons */
+  .quantum-btn {
+    @apply relative font-cyber font-bold tracking-wide overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--grid-cyan) / 0.2), hsl(var(--electric-blue) / 0.3));
+    border: 1px solid hsl(var(--grid-cyan) / 0.5);
+    color: hsl(var(--grid-cyan));
+    text-shadow: 0 0 10px hsl(var(--grid-cyan) / 0.8);
+    transition: var(--transition-glow);
+  }
+  
+  .quantum-btn::before {
+    content: '';
+    @apply absolute inset-0 opacity-0;
+    background: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--quantum-purple)));
+    transition: var(--transition-glow);
+  }
+  
+  .quantum-btn:hover::before {
+    @apply opacity-20;
+  }
+  
+  .quantum-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-small);
+    text-shadow: 0 0 20px hsl(var(--neon-cyan));
+  }
+  
+  /* Skill Chips */
+  .skill-chip {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-code border;
+    background: linear-gradient(135deg, hsl(var(--neural-dark) / 0.8), hsl(var(--quantum-black) / 0.6));
+    border-color: hsl(var(--electric-blue) / 0.4);
+    color: hsl(var(--electric-blue));
+    transition: var(--transition-neural);
+  }
+  
+  .skill-chip:hover {
+    background: linear-gradient(135deg, hsl(var(--electric-blue) / 0.2), hsl(var(--quantum-purple) / 0.2));
+    border-color: hsl(var(--neon-cyan) / 0.6);
+    color: hsl(var(--neon-cyan));
+    box-shadow: var(--glow-small);
+    transform: scale(1.05);
+  }
+  
+  /* Status Indicator */
+  .status-online {
+    @apply relative;
+  }
+  
+  .status-online::before {
+    content: '';
+    @apply absolute w-3 h-3 rounded-full;
+    background: hsl(var(--matrix-green));
+    box-shadow: 0 0 10px hsl(var(--matrix-green));
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Neural Text Effects */
+  .neural-text {
+    @apply font-cyber;
+    background: linear-gradient(135deg, hsl(var(--grid-cyan)), hsl(var(--quantum-purple)), hsl(var(--electric-blue)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  .glow-text {
+    text-shadow: 
+      0 0 10px hsl(var(--grid-cyan) / 0.8),
+      0 0 20px hsl(var(--grid-cyan) / 0.6),
+      0 0 30px hsl(var(--grid-cyan) / 0.4);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-gradient-shift {
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  .animate-grid-pulse {
+    animation: grid-pulse 4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1; 
+    box-shadow: 0 0 10px hsl(var(--matrix-green)), 0 0 20px hsl(var(--matrix-green) / 0.5);
+  }
+  50% { 
+    opacity: 0.7; 
+    box-shadow: 0 0 20px hsl(var(--matrix-green)), 0 0 40px hsl(var(--matrix-green) / 0.8);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes grid-pulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
