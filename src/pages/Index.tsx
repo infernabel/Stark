@@ -12,16 +12,30 @@ const Index = () => {
   const [currentAge, setCurrentAge] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  useEffect(() => {
-    // Calculate dynamic age
-    const birthDate = new Date('2009-12-14'); // Approximate birth date
-    const now = new Date();
-    const age = (now.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
-    setCurrentAge(parseFloat(age.toFixed(8)));
+useEffect(() => {
+  const birthDate = new Date('2009-12-14'); // Birth date
 
-    // Initialization sequence
-    setTimeout(() => setIsInitialized(true), 500);
-  }, []);
+  const updateAge = () => {
+    const now = new Date();
+    const age =
+      (now.getTime() - birthDate.getTime()) /
+      (1000 * 60 * 60 * 24 * 365.25);
+    setCurrentAge(parseFloat(age.toFixed(8)));
+  };
+
+  // Initial call
+  updateAge();
+
+  // Keep updating every 100ms
+  const interval = setInterval(updateAge, 100);
+
+  // Initialization sequence
+  setTimeout(() => setIsInitialized(true), 500);
+
+  // Cleanup on unmount
+  return () => clearInterval(interval);
+}, []);
+
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
