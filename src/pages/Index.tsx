@@ -13,7 +13,7 @@ const Index = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
 useEffect(() => {
-  const birthDate = new Date('2025-9-8'); // Birth date
+  const birthDate = new Date('2009-12-14'); // Birth date
 
   const updateAge = () => {
     const now = new Date();
