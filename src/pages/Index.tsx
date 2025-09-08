@@ -20,7 +20,7 @@ useEffect(() => {
     const age =
       (now.getTime() - birthDate.getTime()) /
       (1000 * 60 * 60 * 24 * 365.25);
-    setCurrentAge(parseFloat(age.toFixed(8)));
+    setCurrentAge(age); // Keep full JS precision
   };
 
   // Initial call
