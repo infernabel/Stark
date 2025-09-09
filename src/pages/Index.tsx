@@ -47,12 +47,12 @@ useEffect(() => {
   };
 
   const skills = [
-    { name: 'Java', level: 'intermediate' as const },
+    { name: 'Java', level: 'beginner' as const },
     { name: 'Skript', level: 'intermediate' as const },
     { name: 'Minecraft Plugins', level: 'expert' as const },
     { name: 'HTML', level: 'intermediate' as const },
     { name: 'CSS', level: 'intermediate' as const },
-    { name: 'JavaScript', level: 'intermediate' as const },
+    { name: 'JavaScript', level: 'beginner' as const },
     { name: 'Video Editing', level: 'intermediate' as const },
     { name: 'Server Management', level: 'expert' as const },
   ];
